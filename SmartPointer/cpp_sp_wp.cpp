@@ -150,6 +150,18 @@ void test4()
     cout<<"---------test4 wp govern obj end---------\n"<<endl;
 }
 
+void test5()
+{
+    cout<<"\n---------test5 make_shared begin---------"<<endl;
+    auto sp_pp = make_shared<Person>("zjz");
+    weak_ptr<Person> wp = sp_pp;
+    cout<<"111 ref_cnt: "<<wp.use_count()<<endl;
+    //sp_pp = NULL;
+    sp_pp.reset();
+    cout<<"222 ref_cnt: "<<wp.use_count()<<endl;
+    cout<<"---------test5 make_shared end---------\n"<<endl;
+}
+
 
 int main(void)
 {
@@ -158,6 +170,7 @@ int main(void)
     test2();
     test3();
     test4();
+    test5();
 
     return 0;
 }
